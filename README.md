@@ -1,5 +1,6 @@
-# Learning Agency Lab - Automated Essay Scoring 2.0
 <p align='center'><img src='./header.png'></p>
+
+# <p align='center'> Learning Agency Lab - Automated Essay Scoring 2.0</p>
 
 **Learning Agency Lab - Automated Essay Scoring 2.0:-** The goal is to build a model that can accurately predict the score an essay deserves based solely on its text content. The competition aims to improve student learning outcomes by providing timely and reliable feedback to overburdened educators.
 
@@ -64,5 +65,6 @@ essay_id,score
 001ab80,4
 ```
 
+---
 For detailed instructions, guidelines, and access to the dataset, please visit the competition page on Kaggle: [Learning Agency Lab - Automated Essay Scoring 2.0](https://www.kaggle.com/competitions/learning-agency-lab-automated-essay-scoring-2)
 

@@ -1,3 +1,3 @@
-from load import load_train
+from src.load import load_train
 
 load_train()

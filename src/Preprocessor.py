@@ -4,7 +4,7 @@ from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from nltk.tokenize.treebank import TreebankWordDetokenizer
 from spellchecker import SpellChecker
-from src.feature_engineering import dataPreprocessing, dataPreprocessing_w_contract, dataPreprocessing_w_punct_remove, dataPreprocessing_w_contract_punct_remove
+from feature_engineering import dataPreprocessing, dataPreprocessing_w_contract, dataPreprocessing_w_punct_remove, dataPreprocessing_w_contract_punct_remove
 
 class Preprocessor:
     def __init__(self) -> None:

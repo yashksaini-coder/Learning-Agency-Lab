@@ -66,3 +66,24 @@ def remove_punctuation(text):
     # string.punctuation
     translator = str.maketrans('', '', string.punctuation)
     return text.translate(translator)
+
+def dataPreprocessing(x):
+    # Convert words to lowercase
+    x = x.lower()
+    # Remove HTML
+    x = removeHTML(x)
+    # Delete strings starting with @
+    x = re.sub("@\w+", '',x)
+    # Delete Numbers
+    x = re.sub("'\d+", '',x)
+    x = re.sub("\d+", '',x)
+    # Delete URL
+    x = re.sub("http\w+", '',x)
+    # Replace consecutive empty spaces with a single space character
+    x = re.sub(r"\s+", " ", x)
+    # Replace consecutive commas and periods with one comma and period character
+    x = re.sub(r"\.+", ".", x)
+    x = re.sub(r"\,+", ",", x)
+    # Remove empty characters at the beginning and end
+    x = x.strip()
+    return x

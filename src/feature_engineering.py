@@ -1,5 +1,5 @@
 import re
-
+import string
 
 # The 'removeHTML' function is used to remove HTML tags from a given text or string 'x'
 def removeHTML(x):
@@ -52,3 +52,17 @@ def expandContractions(text):
     def replace(match):
         return cList[match.group(0)]
     return c_re.sub(replace, text)
+
+def remove_punctuation(text):
+    """
+    Remove all punctuation from the input text.
+    
+    Args:
+    - text (str): The input text.
+    
+    Returns:
+    - str: The text with punctuation removed.
+    """
+    # string.punctuation
+    translator = str.maketrans('', '', string.punctuation)
+    return text.translate(translator)

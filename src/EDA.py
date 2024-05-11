@@ -28,7 +28,7 @@ def Histogram_plot(train):
     os.makedirs("plots", exist_ok=True)
     sns.set(rc={'figure.figsize': (15, 15)})
 
-    histogram_plot = train[feats + ["score"]].hist(bins=50)
+    train[feats + ["score"]].hist(bins=50)
     plt.savefig("plots/Histogram_plot.png")
     plt.show()
     time.sleep(2.0)

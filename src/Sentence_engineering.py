@@ -2,6 +2,18 @@ import polars as pl
 from feature_engineering import dataPreprocessing
 
 def Sentence_Preprocess(tmp):
+    """This function takes a DataFrame as input, which likely contains the preprocessed data from essays.
+    
+        - It preprocesses the 'full_text' column using dataPreprocessing (not defined in the provided code) and splits the text into sentences using periods as separators.
+        - It calculates the length of each sentence (sentence_len) and the number of words in each sentence (sentence_word_cnt).
+        - It filters out sentences with a length less than 15 characters.
+
+    Args:
+        tmp (_type_): DataFrame
+
+    Returns:
+        tmp _type_: DataFrame
+    """
     # Preprocess full_text and use periods to segment sentences in the text
     tmp = tmp.with_columns(pl.col('full_text').map_elements(dataPreprocessing).str.split(by=".").alias("sentence"))
     tmp = tmp.explode('sentence')
@@ -14,7 +26,20 @@ def Sentence_Preprocess(tmp):
     return tmp
 
 sentence_fea = ['sentence_len','sentence_word_cnt']
+
 def Sentence_Eng(train_tmp):
+    """This function takes a DataFrame as input, presumably the output of Sentence_Preprocess.
+        - It performs feature engineering on the sentences, counting the number of sentences with lengths greater than certain thresholds (sentence_{i}_cnt).
+        - It calculates additional statistics such as maximum, mean, minimum, first, last, sum, kurtosis, and quantiles (q1 and q3) for the features derived from the sentences (sentence_len, sentence_word_cnt).
+        - Finally, it converts the resulting aggregated data back to a pandas DataFrame (df) for further analysis.
+
+
+    Args:
+        train_tmp (_type_): DataFrame
+
+    Returns:
+        df _type_: DataFrame
+    """
     aggs = [
         # Count the number of sentences with a length greater than i
         *[pl.col('sentence').filter(pl.col('sentence_len') >= i).count().alias(f"sentence_{i}_cnt") for i in [15,50,100,150,200,250,300] ], 

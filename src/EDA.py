@@ -3,21 +3,6 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import time
 
-def create_plot_directory():
-    """
-    Function to create a folder named "plots" one folder above the current directory
-    """
-    # Get the current working directory
-    current_dir = os.getcwd()
-    
-    # Create a directory named "plots" in the current directory if it doesn't exist
-    plots_dir = os.path.join(current_dir, "plots")
-    if not os.path.exists(plots_dir):
-        os.mkdir(plots_dir)
-
-# Example usage:
-create_plot_directory()
-
 feats = [
     "text_length","text_length_p","text_length_pc","text_length_ppr","text_length_pcpr",
     "word_count","word_count_p","word_count_pc","word_count_ppr","word_count_pcpr",

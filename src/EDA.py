@@ -9,13 +9,14 @@ def create_plot_directory():
     """
     # Get the current working directory
     current_dir = os.getcwd()
-    # Navigate to the parent directory
-    parent_dir = os.path.dirname(current_dir)
     
-    # Create a directory named "plots" in the parent directory if it doesn't exist
-    plots_dir = os.path.join(parent_dir, "plots")
+    # Create a directory named "plots" in the current directory if it doesn't exist
+    plots_dir = os.path.join(current_dir, "plots")
     if not os.path.exists(plots_dir):
         os.mkdir(plots_dir)
+
+# Example usage:
+create_plot_directory()
 
 feats = [
     "text_length","text_length_p","text_length_pc","text_length_ppr","text_length_pcpr",
